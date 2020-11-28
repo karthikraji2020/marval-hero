@@ -1,34 +1,12 @@
 
 <div class="container">
-    <mat-accordion>
-        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-        
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <h2 class="panel-title">Comics</h2>
-            </mat-panel-title>
-            <mat-panel-description>
-            <!-- Currently I am {{panelOpenState ? 'open' : 'closed'}} -->
-            </mat-panel-description>
-        </mat-expansion-panel-header>
-  
-        <div  class="card-wrapper">
-            <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
-            <div  class="card" *ngFor="let item of cardDetails;let i=index">
-            <!-- <div class="card"   *ngIf="i<=3"> -->
-                <ng-container>
-                    <div  class="image-container">
-                        <img [src]="item.thumbnail" [alt]="item.thumbnail" >
-                    </div>
-                    <div  class="details">
-                                <h5 class="card-title">{{item.name}}</h5>
-                                <p class="card-description">{{item.description}}</p>
-                                <div class="view-card">View Details</div>
-                    </div>
-                </ng-container>
-            </div>
-        <!-- </ng-container> -->
-        </div>
-        </mat-expansion-panel>
-    </mat-accordion>
+    <br>
+    <app-characters></app-characters>
+ 
+    <br>
+    <app-comics></app-comics>
+
+    <br>
+    <app-series></app-series>
+
 </div>

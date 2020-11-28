@@ -3,7 +3,7 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
 .mat-body, .mat-body-1, .mat-typography {
-    font: 400 14px/20px Poppins, "Helvetica Neue", sans-serif;
+    font: 400 14px/20px Poppins, "Helvetica Neue", sans-serif !important;
     letter-spacing: normal;
 }
 a {
@@ -12,5 +12,12 @@ a {
 }
 .container{
     width: 80%; 
-    margin: 0 auto;
+    margin: auto;
+}
+.right-aligned-header > .mat-content {
+    justify-content: space-between;
+}
+
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+  flex: 0 0 auto;
 }

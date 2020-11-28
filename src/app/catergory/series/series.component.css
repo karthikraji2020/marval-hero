@@ -1,4 +1,4 @@
-/* .card-row{
+.card-row{
     max-height: 260px;
 }
 .card-wrapper {
@@ -76,7 +76,9 @@ h2.panel-title::before{
     left: 75px;
     z-index: 0;
 }
-
+.card:hover .details{
+    opacity: 1;
+}
 /* h2.panel-title::after{
     content: "";
     position: absolute;
@@ -89,4 +91,4 @@ h2.panel-title::before{
     top: -30px;
     left: 45px;
     z-index: 1;
-} */ 
+} */

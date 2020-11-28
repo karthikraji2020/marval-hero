@@ -1,4 +1,4 @@
-/* .card-row{
+.card-row{
     max-height: 260px;
 }
 .card-wrapper {
@@ -17,6 +17,7 @@
     margin: 1rem .6rem;
 }
 .card:hover{
+    opacity: 1;
     cursor: grab;
     position: relative;
     transform: scale3d(1.1, 1.1, 1) translate3d(0px, 0px, 0px) perspective(500px);
@@ -48,6 +49,9 @@
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
+}
+.card:hover .details{
+    opacity: 1;
 }
 .details .view-card {
     font-size: 10px;
@@ -89,4 +93,4 @@ h2.panel-title::before{
     top: -30px;
     left: 45px;
     z-index: 1;
-} */ 
+} */

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data } from './../../services/models/Data';
+// import { Data } from '../../services/models/Marvel';
 import { Chart } from 'chart.js'; 
 @Component({
   selector: 'app-pie',

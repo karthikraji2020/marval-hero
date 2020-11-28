@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data } from './../../services/models/Data';
+// import { Data } from './../../services/models/Data';
 import { Chart } from 'chart.js'; 
 @Component({
   selector: 'app-bar',
@@ -9,7 +9,7 @@ import { Chart } from 'chart.js';
 })
 export class BarComponent implements OnInit {
 
-  data: Data[];  
+  // data: Data[];  
   url = '';  
   votes = [];  
   title = [];  

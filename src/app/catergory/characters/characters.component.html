@@ -1,0 +1,42 @@
+<mat-accordion [togglePosition]="'before'">
+    <mat-expansion-panel [expanded]="true" (opened)="charactersPanelOpenState = true" (closed)="charactersPanelOpenState = false">
+    
+    <mat-expansion-panel-header class="right-aligned-header">
+        <mat-panel-title>
+            <h2 class="panel-title">Characters <ng-container *ngIf="charactersTotal!==''">({{charactersTotal}})</ng-container> </h2>
+        </mat-panel-title>
+        <!-- <a  routerLink="/detail/{{hero.id}}">See All</a> -->
+        <mat-panel-description>   </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <div  class="card-wrapper card-row">
+        <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
+         
+        <div  class="card" *ngFor="let item of charactersCardDetails;let i=index"  (click)="goToDetailCard(item)">
+        <!-- <div class="card"   *ngIf="i<=3"> -->
+            <ng-container>
+                <div  class="image-container">
+                    <img [src]="item.thumbnail" [alt]="item.thumbnail" >
+                </div>
+                <div  class="details">
+                            <h5 class="card-title">{{item.name}}</h5>
+                            <p class="card-description">
+                                <ng-container *ngIf="item.description;else elseContinue">
+                                    <ng-container *ngIf="item.description.length>=33">
+                                        {{ item.description | slice:0:33 }} 
+                                    </ng-container>
+                                </ng-container>
+                                <ng-template #elseContinue>
+                                    Description Not Available
+                                </ng-template>
+                            </p>
+                            
+                            <div class="view-card">View Details</div>
+                </div>
+            </ng-container>
+        </div>
+    
+    <!-- </ng-container> -->
+    </div>
+    </mat-expansion-panel>
+</mat-accordion>

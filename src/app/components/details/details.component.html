@@ -1,0 +1,47 @@
+<div class="available-detail">
+    <div class="container">
+        <div class="detail-image-wrapper">
+            <img class="detail-image"  [src]="availableDetails.thumbnail" [alt]="availableDetails.thumbnail" >
+        </div>
+        <h1 class="available-title"> {{availableDetails.name}}</h1>
+        <p class="available-description"> 
+            <ng-container *ngIf="availableDetails.description;else elseContinue">
+                <ng-container *ngIf="availableDetails.description.length>=33">
+                    {{ availableDetails.description | slice:0:33 }} 
+                </ng-container>
+            </ng-container>
+            <ng-template #elseContinue>
+                Description Not Available
+            </ng-template>
+        </p>
+        <div class="available-container">
+            <div class="available-item" >
+                <h3 class="available-count">
+                    {{availableDetails.seriesAvailable}}
+                </h3>
+                <p>
+                    series
+                    available
+                </p>
+            </div>
+            <div class="available-item">
+                <h3 class="available-count">
+                    {{availableDetails.seriesAvailable}}
+                </h3>
+                <p>
+                    series
+                    available
+                </p>
+            </div>
+            <div class="available-item">
+                <h3 class="available-count">
+                    {{availableDetails.seriesAvailable}}
+                </h3>
+                <p>
+                    series
+                    available
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
