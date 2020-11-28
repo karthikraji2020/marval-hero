@@ -1,17 +1,23 @@
-<mat-accordion [togglePosition]="'before'">
+<div class="container">
+    <mat-accordion [togglePosition]="'before'">
     <mat-expansion-panel [expanded]="true" (opened)="charactersPanelOpenState = true" (closed)="charactersPanelOpenState = false">
-    
+
     <mat-expansion-panel-header class="right-aligned-header">
         <mat-panel-title>
             <h2 class="panel-title">Characters <ng-container *ngIf="charactersTotal!==''">({{charactersTotal}})</ng-container> </h2>
         </mat-panel-title>
-        <!-- <a  routerLink="/detail/{{hero.id}}">See All</a> -->
-        <mat-panel-description>   </mat-panel-description>
+        <mat-panel-description>  
+            <ng-template *ngIf="!charactersSeeAllIsEnabled">
+                <a routerLink="/characters">See All</a>
+            </ng-template>
+            
+            
+        </mat-panel-description>
     </mat-expansion-panel-header>
 
-    <div  class="card-wrapper card-row">
+    <div  #cardRow class="card-wrapper card-row">
         <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
-         
+            
         <div  class="card" *ngFor="let item of charactersCardDetails;let i=index"  (click)="goToDetailCard(item)">
         <!-- <div class="card"   *ngIf="i<=3"> -->
             <ng-container>
@@ -35,8 +41,9 @@
                 </div>
             </ng-container>
         </div>
-    
+
     <!-- </ng-container> -->
     </div>
     </mat-expansion-panel>
-</mat-accordion>
+    </mat-accordion>
+</div>

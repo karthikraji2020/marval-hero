@@ -1,4 +1,4 @@
-
+<div class="container">
     <mat-accordion [togglePosition]="'before'">
         <mat-expansion-panel [expanded]="true" (opened)="comicsPanelOpenState = true" (closed)="comicsPanelOpenState = false">
         
@@ -6,12 +6,16 @@
             <mat-panel-title>
                 <h2 class="panel-title">Comics <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container></h2>
             </mat-panel-title>
-    <mat-panel-description> </mat-panel-description>
+    <mat-panel-description> 
+        <ng-template *ngIf="!comicsSeeAllIsEnabled">
+            <a routerLink="/comics">See All</a>
+        </ng-template>
+    </mat-panel-description>
         </mat-expansion-panel-header>
     
-        <div  class="card-wrapper card-row">
+        <div  #cardRow class="card-wrapper card-row">
             <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
-            <div  class="card" *ngFor="let item of comicsCardDetails;let i=index">
+            <div  class="card" *ngFor="let item of comicsCardDetails;let i=index"  (click)="goToDetailCard(item)">
             <!-- <div class="card"   *ngIf="i<=3"> -->
                 <ng-container>
                     <div  class="image-container">
@@ -37,3 +41,4 @@
         </div>
         </mat-expansion-panel>
     </mat-accordion>
+</div>

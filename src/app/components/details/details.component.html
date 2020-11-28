@@ -6,9 +6,7 @@
         <h1 class="available-title"> {{availableDetails.name}}</h1>
         <p class="available-description"> 
             <ng-container *ngIf="availableDetails.description;else elseContinue">
-                <ng-container *ngIf="availableDetails.description.length>=33">
-                    {{ availableDetails.description | slice:0:33 }} 
-                </ng-container>
+                    {{ availableDetails.description}} 
             </ng-container>
             <ng-template #elseContinue>
                 Description Not Available
@@ -17,10 +15,19 @@
         <div class="available-container">
             <div class="available-item" >
                 <h3 class="available-count">
-                    {{availableDetails.seriesAvailable}}
+                    {{availableDetails.comicsAvailable}}
                 </h3>
                 <p>
-                    series
+                    comics
+                    available
+                </p>
+            </div>
+            <div class="available-item">
+                <h3 class="available-count">
+                    {{availableDetails.eventsAvailable}}
+                </h3>
+                <p>
+                    events
                     available
                 </p>
             </div>
@@ -35,10 +42,10 @@
             </div>
             <div class="available-item">
                 <h3 class="available-count">
-                    {{availableDetails.seriesAvailable}}
+                    {{availableDetails.storiesAvailable}}
                 </h3>
                 <p>
-                    series
+                    stories
                     available
                 </p>
             </div>

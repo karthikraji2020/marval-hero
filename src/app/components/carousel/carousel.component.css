@@ -4,10 +4,10 @@
 }
 .carousel-wrapper{
     width: 100%;
-    position: relative;
+    /* position: relative; */
 }
 .img-grid-cover {
-    position: absolute;
+    /* position: absolute; */
     background-color: rgba(13, 37, 63, 0.9);
     inset: 0px;
 }

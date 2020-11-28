@@ -57,13 +57,12 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.mat-form-field + .mat-form-field {
-    margin-left: 8px;
-  }
+
 h2.panel-title{
 z-index: 2;
+cursor: pointer;
 }
-h2.panel-title::before{
+.panel-title::before{
     content: "";
     position: absolute;
     color: rgb(204, 204, 204);
@@ -74,7 +73,7 @@ h2.panel-title::before{
     transform: rotate(45deg);
     top: -30px;
     left: 75px;
-    z-index: 0;
+    z-index: -1;
 }
 .card:hover .details{
     opacity: 1;

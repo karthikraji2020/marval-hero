@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 import { CardDetails } from 'src/app/services/models/Marvel';
 
@@ -10,16 +10,21 @@ import { CardDetails } from 'src/app/services/models/Marvel';
   styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent implements OnInit {
+  @ViewChild('cardRow',{static:true}) cardRow: ElementRef;
   // @ViewChild(MatAccordion) accordion: MatAccordion;
   charactersCardDetails:CardDetails []=[];
   charactersTotal:string='';
   charactersPanelOpenState = false;
-
-  constructor(private _marvelService:MarvelService,private router:Router) {
+  charactersSeeAllIsEnabled = false;
+  constructor(private _marvelService:MarvelService,
+    private router:Router,
+    private route: ActivatedRoute,
+    ) {
 
     this.getAllCharacters(); }
 
   ngOnInit(): void {
+   
   }
   getAllCharacters() {
     this._marvelService.getAllCharacters().subscribe((data:any)=>{
@@ -41,6 +46,16 @@ export class CharactersComponent implements OnInit {
         });
       // }
     })
+  }
+  ngAfterViewInit(): void {
+    //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
+    //Add 'implements AfterViewInit' to the class.
+    const url = this.route.snapshot.url[0].path;
+    console.log(url);
+    if(url==='characters'){
+      // this.charactersSeeAllIsEnabled=true;
+      this.cardRow.nativeElement.classList.remove("card-row");
+    }
   }
   
   goToDetailCard(cardObj) {

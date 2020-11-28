@@ -34,7 +34,7 @@ export class HomeComponent implements OnInit {
    }
   ngOnInit(): void {
   }
-
+ 
   getAllCharacters() {
     this._marvelService.getAllCharacters().subscribe((data:any)=>{
       // if(data?.results){
