@@ -67,7 +67,7 @@
 h2.panel-title{
 z-index: 2;
 }
-h2.panel-title::before{
+/* h2.panel-title::before{
     content: "";
     position: absolute;
     color: rgb(204, 204, 204);
@@ -79,7 +79,7 @@ h2.panel-title::before{
     top: -30px;
     left: 75px;
     z-index: 0;
-}
+} */
 
 /* h2.panel-title::after{
     content: "";

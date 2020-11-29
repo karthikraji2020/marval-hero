@@ -10,12 +10,13 @@ import { CardDetails } from 'src/app/services/models/Marvel';
   styleUrls: ['./characters.component.css']
 })
 export class CharactersComponent implements OnInit {
-  @ViewChild('cardRow',{static:true}) cardRow: ElementRef;
+  @ViewChild('cardRow',{static:false}) cardRow: ElementRef;
   // @ViewChild(MatAccordion) accordion: MatAccordion;
   charactersCardDetails:CardDetails []=[];
   charactersTotal:string='';
-  charactersPanelOpenState = false;
+  charactersPanelOpenState = true;
   charactersSeeAllIsEnabled = false;
+  
   constructor(private _marvelService:MarvelService,
     private router:Router,
     private route: ActivatedRoute,
@@ -53,7 +54,7 @@ export class CharactersComponent implements OnInit {
     const url = this.route.snapshot.url[0].path;
     console.log(url);
     if(url==='characters'){
-      // this.charactersSeeAllIsEnabled=true;
+       this.charactersSeeAllIsEnabled=true;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
   }
@@ -62,4 +63,8 @@ export class CharactersComponent implements OnInit {
     console.log(cardObj);
     this.router.navigate([`/characters/${cardObj.name}/${cardObj.id}`])
   }
+  togglePanel() {
+    this.charactersPanelOpenState = !this.charactersPanelOpenState;
+  }
 }
+  

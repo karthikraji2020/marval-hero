@@ -1,25 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, RouterStateSnapshot } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css']
+  styleUrls: ['./details.component.css'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class DetailsComponent implements OnInit {
   name:any;
   availableDetails:any=[];
   constructor(
     private route: ActivatedRoute,
-    private _marvelService:MarvelService
+    private _marvelService:MarvelService,
+    @Inject(DOCUMENT) private _document
     // private state: RouterStateSnapshot
   ) {
     this.getData();
   }
-
+  
   ngOnInit(): void {
-   
+    this._document.body.classList.add('detailbg-color');
+    // OR you can Add inline style css with the help of code below
+    // this._document.body.style.background = '#fff';
+}
+  ngOnDestroy() {
+    // remove the class form body tag
+    this._document.body.classList.remove('detailbg-color');
   }
+ 
 getData() {
   const id = this.route.snapshot.paramMap.get('id');
   console.log(this.route);

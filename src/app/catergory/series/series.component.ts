@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 import { CardDetails } from 'src/app/services/models/Marvel';
@@ -9,20 +9,19 @@ import { CardDetails } from 'src/app/services/models/Marvel';
   styleUrls: ['./series.component.css']
 })
 export class SeriesComponent implements OnInit {
-  @ViewChild('cardRow',{static:true}) cardRow: ElementRef;
+  @ViewChild('cardRow',{static:false}) cardRow: ElementRef;
 
   seriesCardDetails:CardDetails []=[];
   seriesTotal:string='';
 
-  charactersPanelOpenState = false;
-  comicsPanelOpenState = false;
-  seriesPanelOpenState = false;
-  seriesSeeAllIsEnabled = false;
+  seriesPanelOpenState = true;
+  seriesSeeAllIsEnabled = true;
 
   constructor(
     private _marvelService:MarvelService,
     private router:Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private seriesComponent: ElementRef,
     ) {
 
     this.getAllSeries()
@@ -60,8 +59,10 @@ export class SeriesComponent implements OnInit {
     //Add 'implements AfterViewInit' to the class.
     const url = this.route.snapshot.url[0].path;
     console.log(url);
-    if(url==='characters'){
-      this.seriesSeeAllIsEnabled=true;
+    // this.seriesComponent.nativeElement.classList.add("bodybg-color");
+    // if(url==='characters'){
+    if(url==='series'){
+      this.seriesSeeAllIsEnabled= false;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
   }

@@ -27,3 +27,46 @@ p {
     line-height: 1.5;
     text-transform: capitalize;
 }
+
+.bodybg-color{
+    background-color: rgb(245, 248, 250);
+}
+.detailbg-color{
+background: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 0.9) 100%);
+}
+.toggleIcon{
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(245, 248, 250);
+}
+
+h2.panel-title{
+    font-size: 24px;
+    font-weight: bold;
+    word-spacing: 4px;
+    margin-bottom: 0px;
+    color: rgb(13, 37, 63);
+    text-transform: uppercase;
+    position: relative;
+z-index: 2;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+}
+.category-heading{
+    margin: 1rem 0;
+}
+
+h2.panel-title::before{
+    content: "";
+    position: absolute;
+    color: rgb(204, 204, 204);
+    font-size: 26px;
+    height: 90px;
+    width: 3px;
+    background-color: rgb(1, 180, 228);
+    transform: rotate(45deg);
+    top: -30px;
+    left: 75px;
+    z-index: 0;
+}

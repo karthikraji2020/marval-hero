@@ -2,31 +2,31 @@
 <div class="container">
    
     <div class="category-heading" (click)="togglePanel()">
-        <h2 class="panel-title">
-            <mat-icon aria-hidden="false" aria-label="Example home icon"> home</mat-icon>
-            Series 
-            <ng-container *ngIf="seriesTotal!==''">({{seriesTotal}})</ng-container>
-         </h2>
-
+        <div class="toggleIcon">
+            <h2 class="panel-title">
+                <ng-container *ngIf="seriesPanelOpenState; else elseArrowDown">
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>Series
+                    <ng-container *ngIf="seriesTotal!==''">({{seriesTotal}})</ng-container>
+                </ng-container>
+                <ng-template #elseArrowDown>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>Series
+                    <ng-container *ngIf="seriesTotal!==''">({{seriesTotal}})</ng-container>
+                </ng-template>
+            </h2>
+            <ng-container *ngIf="seriesSeeAllIsEnabled">
+            <h2 class="panel-title">
+                <a routerLink="/series">See All</a>
+            </h2>
+         </ng-container>
+        </div>
     </div>
     <ng-container *ngIf="seriesPanelOpenState">
         <mat-accordion [togglePosition]="'before'">
             <mat-expansion-panel [expanded]="true" (opened)="seriesPanelOpenState = true" (closed)="seriesPanelOpenState = false" hideToggle>
-            <mat-expansion-panel-header>
-                <mat-panel-title>
-                    <!-- <h2 class="panel-title">Series  <ng-container *ngIf="seriesTotal!==''">({{seriesTotal}})</ng-container> </h2> -->
-                </mat-panel-title>
-        <mat-panel-description>
-            <ng-template *ngIf="!seriesSeeAllIsEnabled">
-                <a routerLink="/series">See All</a>
-            </ng-template>
-             </mat-panel-description>
-            </mat-expansion-panel-header>
-        
             <div #cardRow class="card-wrapper card-row">
-                <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
+                
                 <div  class="card" *ngFor="let item of seriesCardDetails;let i=index" (click)="goToDetailCard(item)">
-                <!-- <div class="card"   *ngIf="i<=3"> -->
+             
                     <ng-container>
                         <div  class="image-container">
                             <img [src]="item.thumbnail" [alt]="item.thumbnail" >

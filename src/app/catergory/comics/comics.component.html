@@ -1,22 +1,34 @@
 <div class="container">
-    <mat-accordion [togglePosition]="'before'">
-        <mat-expansion-panel [expanded]="true" (opened)="comicsPanelOpenState = true" (closed)="comicsPanelOpenState = false">
-        
-        <mat-expansion-panel-header>
-            <mat-panel-title>
-                <h2 class="panel-title">Comics <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container></h2>
-            </mat-panel-title>
-    <mat-panel-description> 
-        <ng-template *ngIf="!comicsSeeAllIsEnabled">
-            <a routerLink="/comics">See All</a>
-        </ng-template>
-    </mat-panel-description>
-        </mat-expansion-panel-header>
+
+    <div class="category-heading" (click)="togglePanel()">
+        <div class="toggleIcon">
+            <h2 class="panel-title">
+                <ng-container *ngIf="comicsPanelOpenState; else elseArrowDown">
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>Comics
+                    <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container>
+                </ng-container>
+                <ng-template #elseArrowDown>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>Comics
+                    <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container>
+                </ng-template>
+            </h2>
+            <ng-container *ngIf="!comicsSeeAllIsEnabled">
+                <h2 class="panel-title">
+                    <a routerLink="/comics">See All</a>
+                </h2>
+             </ng-container>
+           
+        </div>
+    </div>
+
+    <ng-container *ngIf="comicsPanelOpenState">
+    <mat-accordion [togglePosition]="'before'" >
+        <mat-expansion-panel [expanded]="true" (opened)="comicsPanelOpenState = true" (closed)="comicsPanelOpenState = false" hideToggle>
     
         <div  #cardRow class="card-wrapper card-row">
-            <!-- <ng-container *ngFor="let item of cardDetails;let i=index"> -->
+            
             <div  class="card" *ngFor="let item of comicsCardDetails;let i=index"  (click)="goToDetailCard(item)">
-            <!-- <div class="card"   *ngIf="i<=3"> -->
+         
                 <ng-container>
                     <div  class="image-container">
                         <img [src]="item.thumbnail" [alt]="item.thumbnail" >
@@ -41,4 +53,6 @@
         </div>
         </mat-expansion-panel>
     </mat-accordion>
+    </ng-container>
+
 </div>

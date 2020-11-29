@@ -9,9 +9,9 @@ import { CardDetails } from 'src/app/services/models/Marvel';
   styleUrls: ['./comics.component.css']
 })
 export class ComicsComponent implements OnInit {
-  @ViewChild('cardRow',{static:true}) cardRow: ElementRef;
+  @ViewChild('cardRow',{static:false}) cardRow: ElementRef;
 
-  comicsPanelOpenState = false;
+  comicsPanelOpenState = true;
   comicsCardDetails:CardDetails []=[];
   comicsTotal:string='';
   comicsSeeAllIsEnabled = false;
@@ -54,11 +54,13 @@ export class ComicsComponent implements OnInit {
     //Add 'implements AfterViewInit' to the class.
     const url = this.route.snapshot.url[0].path;
     console.log(url);
-    if(url==='characters'){
+    if(url==='comics'){
       this.comicsSeeAllIsEnabled=true;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
   }
   
-
+  togglePanel() {
+    this.comicsPanelOpenState = !this.comicsPanelOpenState;
+  }
 }
