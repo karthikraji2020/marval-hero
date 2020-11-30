@@ -21,3 +21,22 @@
    z-index: 1;
 
 }
+
+.aside-details{
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: start;
+    align-items: start;
+    margin-left: 40px;
+}
+.published{
+    font-size: 24px;
+    line-height: 36px;
+    color: rgb(245, 248, 250);
+}
+.count{
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 60px;
+    color: rgb(87, 220, 255);  
+}

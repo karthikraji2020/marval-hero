@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable,throwError } from 'rxjs';
-import { retry, catchError, filter, map, concatAll, toArray } from 'rxjs/operators';
+import { retry, catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +13,7 @@ export class MarvelService {
   seriesJson ='assets/series.json';
   constructor(private http: HttpClient) { }
   
-  getAllcharacters_() {
-    return this.http.get(`${this.charectersAPI}`).
-    pipe(retry(1),catchError(this.handleError));
-  }
+
   getAllCharacters() {
     return this.http.get(`${this.charectersJson}`).
     pipe(retry(1),catchError(this.handleError));
@@ -25,26 +22,27 @@ export class MarvelService {
     return this.http.get(`${this.comicsJson}`).
     pipe(retry(1),catchError(this.handleError));
   }
-  getCharactersById(id) {
-    return this.http.get(`${this.charectersJson}`).
-       pipe(map((val: any) => val.data.results.filter((item: any)=> item.id == id)));
-
-  }
-  getComicsById(id) {
-    // return this.http.get(`${this.comicsJson}?id=${id}`).
-    return this.http.get(`${this.comicsJson}`)
-    // pipe(retry(1) ,filter( item =>item.id == id))
-    // pipe(
-    //   map((val: any) => val.data.results),
-    //   concatAll(),
-    //   filter((item: any)=> item.id == id),
-    //   toArray()
-    // )
-  };
   getAllSeries() {
     return this.http.get(`${this.seriesJson}`).
     pipe(retry(1),catchError(this.handleError));
   }
+
+  getCharactersById(id) {
+    return this.http.get(`${this.charectersJson}`).
+       pipe(map((val: any) => val.data.results.filter((item: any)=> item.id == id)));
+  }
+  getComicsById(id) {
+    // return this.http.get(`${this.comicsJson}?id=${id}`).
+    return this.http.get(`${this.comicsJson}`).
+    pipe(map((val: any) => val.data.results.filter((item: any)=> item.id == id)));
+  };
+ 
+  getSeriesById(id) {
+    return this.http.get(`${this.seriesJson}`).
+       pipe(map((val: any) => val.data.results.filter((item: any)=> item.id == id)));
+  }
+
+
   handleError(error) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

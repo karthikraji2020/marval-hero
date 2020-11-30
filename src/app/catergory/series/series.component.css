@@ -1,4 +1,4 @@
-.card-row{
+/* .card-row{
     max-height: 260px;
 }
 .card-wrapper {
@@ -75,6 +75,10 @@ cursor: pointer;
 display: flex;
 justify-content: space-between;
 }
+
+.card:hover .details{
+    opacity: 1;
+} */
 /* .panel-title::before{
     content: "";
     position: absolute;
@@ -88,9 +92,7 @@ justify-content: space-between;
     left: 75px;
     z-index: -1;
 } */
-.card:hover .details{
-    opacity: 1;
-}
+
 /* h2.panel-title::after{
     content: "";
     position: absolute;

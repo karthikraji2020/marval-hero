@@ -1,7 +1,14 @@
 .available-detail{
     inset: 0px;
-    /* text-align: center; */
+    z-index:0;
     background: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 0.9) 100%);
+}
+.available-detail::before{
+    content:'';
+    background-image: url('./../../../assets/carousel_bg_img.png');
+    background-position: center center;
+    height: 100%;
+    z-index: -1;
 }
 .detail-image-wrapper{
     display: flex;
@@ -50,7 +57,7 @@
     text-align: center;
     
 }
-.available-count {
+h3.available-count {
     font-size: 28px;
     font-weight: 500;
 }

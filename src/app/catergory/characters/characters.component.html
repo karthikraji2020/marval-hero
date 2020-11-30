@@ -15,7 +15,7 @@
                 </ng-container>
             </h2>
             <ng-container *ngIf="!charactersSeeAllIsEnabled">
-                <h2 class="panel-title">
+                <h2 class="see-all">
                     <a routerLink="/characters">See All</a>
                 </h2>
              </ng-container>
@@ -25,10 +25,7 @@
     <mat-accordion [togglePosition]="'before'">
     <mat-expansion-panel [expanded]="true" (opened)="charactersPanelOpenState = true" (closed)="charactersPanelOpenState = false" hideToggle>
 
-
     <div  #cardRow class="card-wrapper card-row">
-        
-            
         <ng-container *ngIf="charactersPanelOpenState">
         <div  class="card" *ngFor="let item of charactersCardDetails;let i=index"  (click)="goToDetailCard(item)">
      
@@ -52,10 +49,10 @@
                 </div>
             </div>
         </ng-container>
-
-    <!-- </ng-container> -->
     </div>
     </mat-expansion-panel>
     </mat-accordion>
     </ng-container>
+
+    
 </div>

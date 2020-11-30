@@ -37,6 +37,7 @@ export class SeriesComponent implements OnInit {
         this.seriesTotal=data.data.total;
         series.forEach(item => {
          this.seriesCardDetails.push({
+           id:item.id,
            name:item.title,
            description:item.description,
            comicsAvailable:item.comics?.available,
@@ -52,7 +53,8 @@ export class SeriesComponent implements OnInit {
   
   goToDetailCard(cardObj) {
     console.log(cardObj);
-    this.router.navigate([`/series/${cardObj.name}/${cardObj.id}`])
+    let name=cardObj.name.replace(/\s/g, '');
+    this.router.navigate([`/series/${name}/${cardObj.id}`])
   }
 
   ngAfterViewInit(): void {
@@ -80,5 +82,7 @@ export class SeriesComponent implements OnInit {
   togglePanel() {
     this.seriesPanelOpenState = !this.seriesPanelOpenState;
   }
+    
+
 
 }

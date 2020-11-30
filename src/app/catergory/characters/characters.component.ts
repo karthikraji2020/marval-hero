@@ -47,10 +47,10 @@ export class CharactersComponent implements OnInit {
            id:item.id,
            name:item.name,
            description:item.description,
-           comicsAvailable:item.comics.available,
-           seriesAvailable:item.series.available,
-           eventsAvailable:item.events.available,
-           storiesAvailable:item.stories.available,
+           comicsAvailable:item.comics?.available,
+           seriesAvailable:item.series?.available,
+           eventsAvailable:item.events?.available,
+           storiesAvailable:item.stories?.available,
            thumbnail:item.thumbnail.path+'.'+item.thumbnail.extension,
           })
         });
@@ -70,7 +70,8 @@ export class CharactersComponent implements OnInit {
   
   goToDetailCard(cardObj) {
     console.log(cardObj);
-    this.router.navigate([`/characters/${cardObj.name}/${cardObj.id}`])
+      let name=cardObj.name.replace(/\s/g, '');
+    this.router.navigate([`/characters/${name}/${cardObj.id}`])
   }
   togglePanel() {
     this.charactersPanelOpenState = !this.charactersPanelOpenState;

@@ -36,26 +36,49 @@ getData() {
   console.log(this.route);
   const url = this.route.snapshot.url[0].path;
   console.log(url);
+  switch (url) {
+    case 'characters':
+      this._marvelService.getCharactersById(id).subscribe((data:any)=>{
+        this.reconstructData(data);
+      })
+      break;
+    case 'comics':
+      this._marvelService.getComicsById(id).subscribe((data:any)=>{
+        this.reconstructData(data);
+      })
+      break;
+    case 'series':
+      this._marvelService.getSeriesById(id).subscribe((data:any)=>{
+        this.reconstructData(data);
+      })
+      break;
+  
+    default:
+      break;
+  }
 
-  this._marvelService.getCharactersById(id).subscribe((data:any)=>{
-    if(data) {
-      // let output = data.data.results.filter(x=>x.id==id)
-      console.log(data);
-      data.forEach(item => {
-        this.availableDetails.push({
-          id:item.id,
-          name:item.name,
-          description:item.description,
-          comicsAvailable:item.comics.available,
-          seriesAvailable:item.series.available,
-          eventsAvailable:item.events.available,
-          storiesAvailable:item.stories.available,
-          thumbnail:item.thumbnail.path+'.'+item.thumbnail.extension,
-         })
-       });
-      [this.availableDetails]=this.availableDetails;
-      console.log(this.availableDetails);
-    }
-  })
+ 
+
+}
+
+reconstructData(data) {
+  if(data) {
+    // let output = data.data.results.filter(x=>x.id==id)
+    console.log(data);
+    data.forEach(item => {
+      this.availableDetails.push({
+        id:item.id,
+        name:item.name,
+        description:item.description,
+        comicsAvailable:item.comics?.available,
+        seriesAvailable:item.series?.available,
+        eventsAvailable:item.events?.available,
+        storiesAvailable:item.stories?.available,
+        thumbnail:item.thumbnail.path+'.'+item.thumbnail.extension,
+       })
+     });
+    [this.availableDetails]=this.availableDetails;
+    console.log(this.availableDetails);
+  }
 }
 }

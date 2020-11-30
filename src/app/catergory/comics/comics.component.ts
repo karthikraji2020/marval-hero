@@ -41,6 +41,7 @@ export class ComicsComponent implements OnInit {
         this.comicsTotal=data.data.total;
         comics.forEach(item => {
          this.comicsCardDetails.push({
+           id:item.id,
            name:item.title,
            description:item.description,
            comicsAvailable:item.comics?.available,
@@ -57,7 +58,8 @@ export class ComicsComponent implements OnInit {
 
   goToDetailCard(cardObj) {
     console.log(cardObj);
-    this.router.navigate([`/comics/${cardObj.name}/${cardObj.id}`])
+    let name=cardObj.name.replace(/\s/g, '');
+    this.router.navigate([`/comics/${name}/${cardObj.id}`])
   }
   ngAfterViewInit(): void {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
