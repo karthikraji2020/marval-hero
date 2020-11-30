@@ -31,7 +31,7 @@ export class ComicsComponent implements OnInit {
     // this._document.body.style.background = '#fff';
 }
   ngOnDestroy() {
-    // remove the class form body tag
+  
     this._document.body.classList.remove('bodybg-color');
   }
   getAllComics() {

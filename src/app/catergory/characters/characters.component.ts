@@ -14,10 +14,10 @@ export class CharactersComponent implements OnInit {
   @ViewChild('cardRow',{static:false}) cardRow: ElementRef;
   // @ViewChild(MatAccordion) accordion: MatAccordion;
   // charactersCardDetails:CardDetails []=[];
-  @Input() charactersCardDetails: CardDetails[]=[];
+  charactersCardDetails:CardDetails []=[];
   charactersTotal:string='';
   charactersPanelOpenState = true;
-  @Input() charactersSeeAllIsEnabled = false;
+  charactersSeeAllIsEnabled = false;
   
   constructor(private _marvelService:MarvelService,
     private router:Router,
@@ -26,16 +26,14 @@ export class CharactersComponent implements OnInit {
 
     ) {
 
-    // this.getAllCharacters(); 
+    this.getAllCharacters(); 
   }
 
     ngOnInit(): void {
       this._document.body.classList.add('bodybg-color');
-      // OR you can Add inline style css with the help of code below
-      // this._document.body.style.background = '#fff';
   }
     ngOnDestroy() {
-      // remove the class form body tag
+    
       this._document.body.classList.remove('bodybg-color');
     }
   getAllCharacters() {
@@ -68,9 +66,6 @@ export class CharactersComponent implements OnInit {
        this.charactersSeeAllIsEnabled=true;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
-    console.log('--------')
-    console.log(this.charactersCardDetails)
-
   }
   
   goToDetailCard(cardObj) {

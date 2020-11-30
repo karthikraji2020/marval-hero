@@ -25,15 +25,15 @@
         </div>
     </div>
 
-    <ng-container *ngIf="comicsPanelOpenState">
+    <ng-container >
     <mat-accordion [togglePosition]="'before'" >
         <mat-expansion-panel [expanded]="true" (opened)="comicsPanelOpenState = true" (closed)="comicsPanelOpenState = false" hideToggle>
     
         <div  #cardRow class="card-wrapper card-row">
             
+            <ng-container *ngIf="comicsPanelOpenState">
             <div  class="card" *ngFor="let item of comicsCardDetails;let i=index"  (click)="goToDetailCard(item)">
          
-                <ng-container>
                     <div  class="image-container">
                         <img [src]="item.thumbnail" [alt]="item.thumbnail" >
                     </div>
@@ -51,8 +51,8 @@
                                 </p>
                                 <div class="view-card">View Details</div>
                     </div>
-                </ng-container>
-            </div>
+                </div>
+            </ng-container>
         <!-- </ng-container> -->
         </div>
         </mat-expansion-panel>

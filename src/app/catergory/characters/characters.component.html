@@ -21,7 +21,7 @@
              </ng-container>
         </div>
     </div>
-    <ng-container *ngIf="charactersPanelOpenState">
+    <ng-container >
     <mat-accordion [togglePosition]="'before'">
     <mat-expansion-panel [expanded]="true" (opened)="charactersPanelOpenState = true" (closed)="charactersPanelOpenState = false" hideToggle>
 
@@ -29,9 +29,9 @@
     <div  #cardRow class="card-wrapper card-row">
         
             
+        <ng-container *ngIf="charactersPanelOpenState">
         <div  class="card" *ngFor="let item of charactersCardDetails;let i=index"  (click)="goToDetailCard(item)">
      
-            <ng-container>
                 <div  class="image-container">
                     <img [src]="item.thumbnail" [alt]="item.thumbnail" >
                 </div>
@@ -50,8 +50,8 @@
                             
                             <div class="view-card">View Details</div>
                 </div>
-            </ng-container>
-        </div>
+            </div>
+        </ng-container>
 
     <!-- </ng-container> -->
     </div>

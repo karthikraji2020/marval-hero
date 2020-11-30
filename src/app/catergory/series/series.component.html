@@ -22,14 +22,13 @@
          </ng-container>
         </div>
     </div>
-    <ng-container *ngIf="seriesPanelOpenState">
+    <ng-container >
         <mat-accordion [togglePosition]="'before'">
             <mat-expansion-panel [expanded]="true" (opened)="seriesPanelOpenState = true" (closed)="seriesPanelOpenState = false" hideToggle>
-            <div #cardRow class="card-wrapper card-row">
-                
-                <div  class="card" *ngFor="let item of seriesCardDetails;let i=index" (click)="goToDetailCard(item)">
+                <div #cardRow class="card-wrapper card-row">
+                    <ng-container *ngIf="seriesPanelOpenState">
+                   <div  class="card" *ngFor="let item of seriesCardDetails;let i=index" (click)="goToDetailCard(item)">
              
-                    <ng-container>
                         <div  class="image-container">
                             <img [src]="item.thumbnail" [alt]="item.thumbnail" >
                         </div>
@@ -47,8 +46,8 @@
                                     </p>
                                     <div class="view-card">View Details</div>
                         </div>
-                    </ng-container>
-                </div>
+                    </div>
+                </ng-container>
             <!-- </ng-container> -->
             </div>
             </mat-expansion-panel>

@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit {
     private _marvelService:MarvelService,
     @Inject(DOCUMENT) private _document) {
 
-    this.getAllCharacters();
-    this.getAllComics();
-    this.getAllSeries();
+    // this.getAllCharacters();
+    // this.getAllComics();
+    // this.getAllSeries();
    }
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
     // this._document.body.style.background = '#fff';
 }
   ngOnDestroy() {
-    // remove the class form body tag
+  
     this._document.body.classList.remove('bodybg-color');
   }
   getAllCharacters() {
