@@ -94,3 +94,8 @@ z-index: 2;
     left: 45px;
     z-index: 1;
 } */
+::ng-deep .mat-expansion-panel-content{
+    /* background-color: red; */
+    background-color: rgb(245, 248, 250);
+
+  }

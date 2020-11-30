@@ -21,6 +21,9 @@ import { ComicsComponent } from './catergory/comics/comics.component';
 import { SeriesComponent } from './catergory/series/series.component';
 import { DetailsComponent } from './components/details/details.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     HttpClientModule,
     MatSliderModule,
     MatExpansionModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule,
+    MatTabsModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,13 +4,15 @@
         <div class="toggleIcon">
             <h2 class="panel-title">
                 <ng-container *ngIf="charactersPanelOpenState; else elseArrowDown">
-                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>Characters
-                    <ng-container *ngIf="charactersTotal!==''">({{charactersTotal}})</ng-container>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>
                 </ng-container>
                 <ng-template #elseArrowDown>
-                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>Characters
-                    <ng-container *ngIf="charactersTotal!==''">({{charactersTotal}})</ng-container>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>
                 </ng-template>
+                <ng-container *ngIf="charactersTotal!==''">
+                    <ng-container *ngIf="!charactersSeeAllIsEnabled ">Characters ({{charactersTotal}})</ng-container>
+                    <ng-container *ngIf="charactersSeeAllIsEnabled ">All Characters({{charactersTotal}})</ng-container>
+                </ng-container>
             </h2>
             <ng-container *ngIf="!charactersSeeAllIsEnabled">
                 <h2 class="panel-title">

@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  title = 'angular-material-tab-router';  
   navLinks: any[];
   activeLinkIndex = -1; 
   constructor(private router: Router) {
@@ -18,13 +17,18 @@ export class NavbarComponent implements OnInit {
             link: './home',
             index: 0
         }, {
+            label: 'characters',
+            link: './characters',
+            index: 1
+        }, 
+         {
             label: 'comics',
             link: './comics',
-            index: 1
+            index: 2
         }, {
             label: 'series',
             link: './series',
-            index: 2
+            index: 3
         }, 
     ];
 }

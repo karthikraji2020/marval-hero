@@ -3,14 +3,18 @@
     <div class="category-heading" (click)="togglePanel()">
         <div class="toggleIcon">
             <h2 class="panel-title">
+
                 <ng-container *ngIf="comicsPanelOpenState; else elseArrowDown">
-                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>Comics
-                    <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_down"> keyboard_arrow_down </mat-icon>
                 </ng-container>
                 <ng-template #elseArrowDown>
-                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>Comics
-                    <ng-container *ngIf="comicsTotal!==''">({{comicsTotal}})</ng-container>
+                    <mat-icon aria-hidden="false" aria-label="keyboard_arrow_right"> keyboard_arrow_right </mat-icon>
                 </ng-template>
+                <ng-container *ngIf="comicsTotal!==''">
+                    <ng-container *ngIf="!comicsSeeAllIsEnabled ">Comics ({{comicsTotal}})</ng-container>
+                    <ng-container *ngIf="comicsSeeAllIsEnabled ">All Comics({{comicsTotal}})</ng-container>
+                </ng-container>
+               
             </h2>
             <ng-container *ngIf="!comicsSeeAllIsEnabled">
                 <h2 class="panel-title">
