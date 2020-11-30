@@ -15,7 +15,7 @@
                     <ng-container *ngIf="seriesSeeAllIsEnabled ">All Series({{seriesTotal}})</ng-container>
                 </ng-container>
             </h2>
-            <ng-container *ngIf="seriesSeeAllIsEnabled">
+            <ng-container *ngIf="!seriesSeeAllIsEnabled">
             <h2 class="panel-title">
                 <a routerLink="/series">See All</a>
             </h2>

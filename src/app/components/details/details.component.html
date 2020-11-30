@@ -13,7 +13,7 @@
             </ng-template>
         </p>
         <div class="available-container">
-            <div class="available-item" >
+            <div class="available-item" *ngIf="availableDetails.comicsAvailable">
                 <h3 class="available-count">
                     {{availableDetails.comicsAvailable}}
                 </h3>
@@ -22,7 +22,7 @@
                     available
                 </p>
             </div>
-            <div class="available-item">
+            <div class="available-item"  *ngIf="availableDetails.eventsAvailable">
                 <h3 class="available-count">
                     {{availableDetails.eventsAvailable}}
                 </h3>
@@ -31,7 +31,7 @@
                     available
                 </p>
             </div>
-            <div class="available-item">
+            <div class="available-item"  *ngIf="availableDetails.seriesAvailable">
                 <h3 class="available-count">
                     {{availableDetails.seriesAvailable}}
                 </h3>
@@ -40,7 +40,7 @@
                     available
                 </p>
             </div>
-            <div class="available-item">
+            <div class="available-item" *ngIf="availableDetails.storiesAvailable">
                 <h3 class="available-count">
                     {{availableDetails.storiesAvailable}}
                 </h3>

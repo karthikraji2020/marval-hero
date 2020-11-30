@@ -1,8 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,Inject, Input } from '@angular/core';
 import { MatAccordion } from '@angular/material/expansion';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 import { CardDetails } from 'src/app/services/models/Marvel';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-characters',
@@ -12,21 +13,31 @@ import { CardDetails } from 'src/app/services/models/Marvel';
 export class CharactersComponent implements OnInit {
   @ViewChild('cardRow',{static:false}) cardRow: ElementRef;
   // @ViewChild(MatAccordion) accordion: MatAccordion;
-  charactersCardDetails:CardDetails []=[];
+  // charactersCardDetails:CardDetails []=[];
+  @Input() charactersCardDetails: CardDetails[]=[];
   charactersTotal:string='';
   charactersPanelOpenState = true;
-  charactersSeeAllIsEnabled = false;
+  @Input() charactersSeeAllIsEnabled = false;
   
   constructor(private _marvelService:MarvelService,
     private router:Router,
     private route: ActivatedRoute,
+    @Inject(DOCUMENT) private _document
+
     ) {
 
-    this.getAllCharacters(); }
-
-  ngOnInit(): void {
-   
+    // this.getAllCharacters(); 
   }
+
+    ngOnInit(): void {
+      this._document.body.classList.add('bodybg-color');
+      // OR you can Add inline style css with the help of code below
+      // this._document.body.style.background = '#fff';
+  }
+    ngOnDestroy() {
+      // remove the class form body tag
+      this._document.body.classList.remove('bodybg-color');
+    }
   getAllCharacters() {
     this._marvelService.getAllCharacters().subscribe((data:any)=>{
       // if(data?.results){
@@ -57,6 +68,9 @@ export class CharactersComponent implements OnInit {
        this.charactersSeeAllIsEnabled=true;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
+    console.log('--------')
+    console.log(this.charactersCardDetails)
+
   }
   
   goToDetailCard(cardObj) {

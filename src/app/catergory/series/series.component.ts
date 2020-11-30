@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild,AfterViewInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,AfterViewInit ,Inject} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 import { CardDetails } from 'src/app/services/models/Marvel';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-series',
@@ -15,20 +16,20 @@ export class SeriesComponent implements OnInit {
   seriesTotal:string='';
 
   seriesPanelOpenState = true;
-  seriesSeeAllIsEnabled = true;
+  seriesSeeAllIsEnabled = false;
 
   constructor(
     private _marvelService:MarvelService,
     private router:Router,
     private route: ActivatedRoute,
     private seriesComponent: ElementRef,
+    @Inject(DOCUMENT) private _document
     ) {
 
     this.getAllSeries()
   }
 
-  ngOnInit(): void {
-  }
+
   getAllSeries() {
     this._marvelService.getAllSeries().subscribe((data:any)=>{
       // if(data?.results){
@@ -62,9 +63,18 @@ export class SeriesComponent implements OnInit {
     // this.seriesComponent.nativeElement.classList.add("bodybg-color");
     // if(url==='characters'){
     if(url==='series'){
-      this.seriesSeeAllIsEnabled= false;
+      this.seriesSeeAllIsEnabled= true;
       this.cardRow.nativeElement.classList.remove("card-row");
     }
+  }
+  ngOnInit(): void {
+    this._document.body.classList.add('bodybg-color');
+    // OR you can Add inline style css with the help of code below
+    // this._document.body.style.background = '#fff';
+}
+  ngOnDestroy() {
+    // remove the class form body tag
+    this._document.body.classList.remove('bodybg-color');
   }
   
   togglePanel() {

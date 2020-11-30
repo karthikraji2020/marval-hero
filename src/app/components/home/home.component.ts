@@ -32,9 +32,9 @@ export class HomeComponent implements OnInit {
     private _marvelService:MarvelService,
     @Inject(DOCUMENT) private _document) {
 
-    // this.getAllCharacters();
-    // this.getAllComics();
-    // this.getAllSeries();
+    this.getAllCharacters();
+    this.getAllComics();
+    this.getAllSeries();
    }
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
@@ -52,8 +52,13 @@ export class HomeComponent implements OnInit {
         this.charactersTotal=data.data.total;
        characters.forEach(item => {
          this.charactersCardDetails.push({
+           id:item.id,
            name:item.name,
            description:item.description,
+           comicsAvailable:item.comics.available,
+           seriesAvailable:item.series.available,
+           eventsAvailable:item.events.available,
+           storiesAvailable:item.stories.available,
            thumbnail:item.thumbnail.path+'.'+item.thumbnail.extension,
           })
         });

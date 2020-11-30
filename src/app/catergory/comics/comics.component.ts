@@ -1,7 +1,8 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild,Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
 import { CardDetails } from 'src/app/services/models/Marvel';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-comics',
@@ -18,11 +19,20 @@ export class ComicsComponent implements OnInit {
   
   constructor(private _marvelService:MarvelService,
     private router:Router,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    @Inject(DOCUMENT) private _document
+    ) {
   this.getAllComics();
   }
 
   ngOnInit(): void {
+    this._document.body.classList.add('bodybg-color');
+    // OR you can Add inline style css with the help of code below
+    // this._document.body.style.background = '#fff';
+}
+  ngOnDestroy() {
+    // remove the class form body tag
+    this._document.body.classList.remove('bodybg-color');
   }
   getAllComics() {
     this._marvelService.getAllComics().subscribe((data:any)=>{

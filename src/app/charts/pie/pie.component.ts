@@ -155,7 +155,7 @@ export class PieComponent implements OnInit {
 
   // load data 
   renderChart() {
-    this.pieChart = new Chart('pieChart', {
+    this.pieChart = new Chart('canvas', {
       type: 'pie',
       data: {
         labels: [
