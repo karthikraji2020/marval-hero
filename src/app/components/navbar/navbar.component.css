@@ -15,10 +15,22 @@ a{
     color: rgb(255, 255, 255);
 }
 /* ink bar style */
-.mat-tab-group.mat-primary .mat-ink-bar,.mat-tab-nav-bar.mat-primary .mat-ink-bar{
-    background:  rgb(1, 180, 228);
-
+.mat-ink-bar{
+    background: rgb(1, 180, 228);
+    height: 5px;
   }
 [mat-align-tabs=center]>.mat-tab-link-container .mat-tab-links{
     max-width: 450px;
+}
+.mat-tab-link.mat-focus-indicator.mat-tab-label-active{
+    color:  rgb(1, 180, 228);
+}
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{
+    background-color: rgb(1, 180, 228);
+}
+mat-ink-bar.mat-ink-bar{
+    height: 4px;
+}
+.mat-tab-link{
+    opacity: 1;
 }

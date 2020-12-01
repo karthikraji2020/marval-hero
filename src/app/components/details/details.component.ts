@@ -68,7 +68,7 @@ reconstructData(data) {
     data.forEach(item => {
       this.availableDetails.push({
         id:item.id,
-        name:item.name,
+        name :item.name ? item.name : item.title,
         description:item.description,
         comicsAvailable:item.comics?.available,
         seriesAvailable:item.series?.available,

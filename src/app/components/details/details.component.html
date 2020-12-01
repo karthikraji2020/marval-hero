@@ -1,9 +1,18 @@
+<div class="carousel">
+    <div class="carousel-wrapper">
+            <div class="img-grid-cover" >
+                <div class="detail-image-wrapper">
+                    <img class="detail-image"  [src]="availableDetails.thumbnail" [alt]="availableDetails.thumbnail" >
+                </div>
+            </div>
+    </div>
+</div>
 <div class="available-detail">
     <div class="container">
-        <div class="detail-image-wrapper">
+        <!-- <div class="detail-image-wrapper">
             <img class="detail-image"  [src]="availableDetails.thumbnail" [alt]="availableDetails.thumbnail" >
-        </div>
-        <h1 class="available-title"> {{availableDetails.name}}</h1>
+        </div> -->
+        <h2 class="available-title"> {{availableDetails.name}}</h2>
         <p class="available-description"> 
             <ng-container *ngIf="availableDetails.description;else elseContinue">
                     {{ availableDetails.description}} 

@@ -1,4 +1,4 @@
-.fav-container{
+.fav-container-wrapper{
     width: 150px;
     height: 150px;
     font-size: 34px;
@@ -10,6 +10,15 @@
     border-radius: 16px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 2px;
     transform: translateY(-20%);
+}
+.fav-container{
+    height: 100%;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
 }
 .fav-details {
     position: relative;
