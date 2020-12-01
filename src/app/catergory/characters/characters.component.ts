@@ -18,6 +18,7 @@ export class CharactersComponent implements OnInit {
   charactersTotal:string='';
   charactersPanelOpenState = true;
   charactersSeeAllIsEnabled = false;
+  placeholderFlag = true;
   
   constructor(private _marvelService:MarvelService,
     private router:Router,
@@ -25,12 +26,15 @@ export class CharactersComponent implements OnInit {
     @Inject(DOCUMENT) private _document
 
     ) {
-
+  
     this.getAllCharacters(); 
   }
 
     ngOnInit(): void {
       this._document.body.classList.add('bodybg-color');
+      setTimeout(() => {
+        this.placeholderFlag = !this.placeholderFlag;
+      }, 2000);
   }
     ngOnDestroy() {
     

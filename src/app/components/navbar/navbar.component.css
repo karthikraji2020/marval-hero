@@ -22,7 +22,7 @@ a{
 [mat-align-tabs=center]>.mat-tab-link-container .mat-tab-links{
     max-width: 450px;
 }
-.mat-tab-link.mat-focus-indicator.mat-tab-label-active{
+.mat-tab-link.mat-focus-indicator:hover{
     color:  rgb(1, 180, 228);
 }
 .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar{

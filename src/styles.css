@@ -32,7 +32,9 @@ a {
 }
 .container{
     max-width: 1200px; 
-    min-height: 280px;
+    height: auto;
+    transition: height 0.2s ease-in-out 0s;
+    /* min-height: 280px; */
     margin: auto;
 }
 .right-aligned-header > .mat-content {
@@ -147,6 +149,11 @@ h2.panel-title::before{
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
+    color: rgb(221, 221, 221);
+}
+.image-container img div{
+    /* max-width: 90px; */
+    display: block;
 }
 .details{
     position: absolute;

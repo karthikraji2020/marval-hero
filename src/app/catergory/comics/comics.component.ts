@@ -16,6 +16,7 @@ export class ComicsComponent implements OnInit {
   comicsCardDetails:CardDetails []=[];
   comicsTotal:string='';
   comicsSeeAllIsEnabled = false;
+  placeholderFlag = true;
   
   constructor(private _marvelService:MarvelService,
     private router:Router,
@@ -27,6 +28,9 @@ export class ComicsComponent implements OnInit {
 
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
+    setTimeout(() => {
+      this.placeholderFlag = !this.placeholderFlag;
+    }, 2000);
     // OR you can Add inline style css with the help of code below
     // this._document.body.style.background = '#fff';
 }

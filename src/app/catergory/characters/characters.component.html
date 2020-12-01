@@ -28,10 +28,17 @@
     <div  #cardRow class="card-wrapper card-row">
         <ng-container *ngIf="charactersPanelOpenState">
         <div  class="card" *ngFor="let item of charactersCardDetails;let i=index"  (click)="goToDetailCard(item)">
-     
-                <div  class="image-container">
-                    <img [src]="item.thumbnail" [alt]="item.thumbnail" >
+                <div class="image-container">
+                    <ng-container *ngIf="!placeholderFlag; else elsePlaceholderTemplate">
+                        <img class="card-img" [src]="item.thumbnail" [alt]="item.thumbnail" >
+                    </ng-container>
+                    <ng-template #elsePlaceholderTemplate>
+                        <img alt="image-placeholder" src="./../../../assets/image-placeholder.svg">
+                        <!-- <div>Loading...</div> -->
+                    </ng-template>
                 </div>
+              
+              
                 <div  class="details">
                             <h5 class="card-title">{{item.name}}</h5>
                             <p class="card-description">
