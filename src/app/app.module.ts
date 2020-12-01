@@ -25,6 +25,9 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FavouritesComponent } from './components/favourites/favourites.component';
+import { FormsModule } from '@angular/forms';
+import {OverlayModule} from '@angular/cdk/overlay';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,9 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    OverlayModule,
+    MatSlideToggleModule,
     MatSliderModule,
     MatExpansionModule,
     MatIconModule,

@@ -31,9 +31,6 @@ export class ComicsComponent implements OnInit {
 
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
-   
-    
-    
 }
   ngOnDestroy() {
   
