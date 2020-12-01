@@ -24,6 +24,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { FavouritesComponent } from './components/favourites/favourites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +39,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     ComicsComponent,
     SeriesComponent,
     DetailsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,

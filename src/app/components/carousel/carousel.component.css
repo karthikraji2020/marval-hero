@@ -8,18 +8,18 @@
     position: relative;
 }
 .img-grid-cover {
+    position: relative;
     background-image: url('./../../../assets/carousel_bg_img.png');
     background-position: center center;
     height: 100%;
     z-index: -1;
-  
 }
-.img-grid-cover::after {
-   /* position: absolute; */
+.img-grid-cover::before {
+    content: '';
+   position: absolute;
    background-color: rgba(13, 37, 63, 0.9);
    inset: 0px;
-   z-index: 1;
-
+   z-index: -1;
 }
 
 .aside-details{
@@ -40,6 +40,7 @@
     line-height: 60px;
     color: rgb(87, 220, 255);  
 }
+
 
 @media only screen and (max-width: 600px) {
     .aside-details{

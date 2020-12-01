@@ -1,13 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+:root{
+    --marvel-hero-primary-bg-color: rgb(245, 248, 250);
+    --marvel-hero-secondary-bg-color: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 0.9) 100%);
+    --marvel-hero-primary-text-color: #1890ff;
+    --marvel-hero-primary-text-color: #1890ff;
+    --marvel-hero-font-family: Poppins;
+}
 html, body { height: 100%; }
-body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: var(--marvel-hero-font-family), "Helvetica Neue", sans-serif; }
 .mat-body, .mat-body-1, .mat-typography{
-    font: 400 14px/20px Poppins, "Helvetica Neue", sans-serif !important;
+    font: 400 14px/20px var(--marvel-hero-font-family), "Helvetica Neue", sans-serif !important;
     letter-spacing: normal;
 }
 .mat-tab-label, .mat-tab-link,.mat-h2, .mat-title, .mat-typography h2 {
-    font-family: Poppins, "Helvetica Neue", sans-serif;
+    font-family: var(--marvel-hero-font-family), "Helvetica Neue", sans-serif;
 }
 
 a {
@@ -34,16 +42,16 @@ p {
 }
 
 .bodybg-color{
-    background-color: rgb(245, 248, 250);
+    background-color: var(--marvel-hero-primary-bg-color);
 }
 .detailbg-color{
-background: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 0.9) 100%);
+background:  var(--marvel-hero-secondary-bg-color);
 }
 .toggleIcon{
     display: flex;
     justify-content: space-between;
     height: 30px;
-    background-color: rgb(245, 248, 250);
+    background-color: var(--marvel-hero-primary-bg-color);
 }
 
 h2.panel-title{
@@ -55,7 +63,7 @@ h2.panel-title{
     color: rgb(13, 37, 63);
     text-transform: uppercase;
     position: relative;
-    background-color: rgb(245, 248, 250);
+    background-color: var(--marvel-hero-primary-bg-color);
 }
 .category-heading{
     margin: 1rem 0;
@@ -161,7 +169,7 @@ h2.panel-title::before{
   }
 
 .mat-expansion-panel-body{
-    background-color: rgb(245, 248, 250);
+    background-color: var(--marvel-hero-primary-bg-color);
   }
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
