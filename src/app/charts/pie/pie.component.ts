@@ -185,11 +185,11 @@ export class PieComponent implements OnInit {
       options: {
           responsive: true,
           title: {
-              display: true,
+              display: false,
               text: "Total Confirmed Cases in country",
           },
           legend: {
-              display: true,
+              display: false,
               fontColor: "white",
                fontSize: 14,
           }

@@ -6,9 +6,10 @@ body { margin: 0; font-family: Poppins, "Helvetica Neue", sans-serif; }
     font: 400 14px/20px Poppins, "Helvetica Neue", sans-serif !important;
     letter-spacing: normal;
 }
-.mat-tab-label, .mat-tab-link {
+.mat-tab-label, .mat-tab-link,.mat-h2, .mat-title, .mat-typography h2 {
     font-family: Poppins, "Helvetica Neue", sans-serif;
 }
+
 a {
     transition: color 0.2s ease-in-out 0s;
     text-decoration: underline;
@@ -41,10 +42,12 @@ background: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 
 .toggleIcon{
     display: flex;
     justify-content: space-between;
+    height: 30px;
     background-color: rgb(245, 248, 250);
 }
 
 h2.panel-title{
+
     font-size: 24px;
     font-weight: bold;
     word-spacing: 4px;
@@ -52,13 +55,11 @@ h2.panel-title{
     color: rgb(13, 37, 63);
     text-transform: uppercase;
     position: relative;
-z-index: 2;
-cursor: pointer;
-display: flex;
-justify-content: space-between;
+    background-color: rgb(245, 248, 250);
 }
 .category-heading{
     margin: 1rem 0;
+    padding: 2rem .5rem;
 }
 
 h2.panel-title::before{
@@ -71,11 +72,11 @@ h2.panel-title::before{
     background-color: rgb(1, 180, 228);
     transform: rotate(45deg);
     top: -30px;
-    left: 75px;
-    z-index: 0;
+    left: 47px;
+    z-index: -1;
 }
 .chart-container{
-    width: 450px;
+    width: 420px;
     height: 225px;
 }
 #chart-container{
@@ -158,12 +159,39 @@ h2.panel-title::before{
 .mat-form-field + .mat-form-field {
     margin-left: 8px;
   }
-h2.panel-title{
-z-index: 2;
+
+.mat-expansion-panel-body{
+    background-color: rgb(245, 248, 250);
+  }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* .aside-details{
+        display: none;
+    } */
+    [mat-align-tabs=center]>.mat-tab-link-container .mat-tab-links{
+        max-width: 350px;
+    }
 }
 
-::ng-deep .mat-expansion-panel-content{
-    /* background-color: red; */
-    background-color: rgb(245, 248, 250);
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    
+}
 
-  }
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+.mat-expansion-panel:not([class*=mat-elevation-z]) {
+    box-shadow: none;
+}

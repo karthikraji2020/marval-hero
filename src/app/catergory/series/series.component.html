@@ -26,7 +26,7 @@
         <mat-accordion [togglePosition]="'before'">
             <mat-expansion-panel [expanded]="true" (opened)="seriesPanelOpenState = true" (closed)="seriesPanelOpenState = false" hideToggle>
                 <div #cardRow class="card-wrapper card-row">
-                    <ng-container >
+                    <ng-container *ngIf="seriesPanelOpenState">
                    <div  class="card" *ngFor="let item of seriesCardDetails;let i=index" (click)="goToDetailCard(item)">
              
                         <div  class="image-container">
