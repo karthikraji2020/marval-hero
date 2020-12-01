@@ -19,8 +19,8 @@
 	&::before {
 		content: '';
 		position: absolute;
-		// background-color: rgba(13, 37, 63, 0.9);
-		background-color: $marvel-hero-secondary-bg-color;
+		background-color: rgba(13, 37, 63, 0.9);
+		// background-color: $marvel-hero-secondary-bg-color;
 		inset: 0px;
 		z-index: -1;
 	}
