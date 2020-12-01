@@ -2,10 +2,11 @@ import { DOCUMENT } from '@angular/common';
 import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, RouterStateSnapshot } from '@angular/router';
 import { MarvelService } from 'src/app/services/marvel.service';
+import { UiService } from 'src/app/services/ui.service';
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
-  styleUrls: ['./details.component.css'],
+  styleUrls: ['./details.component.scss'],
   encapsulation: ViewEncapsulation.None
 
 })
@@ -15,6 +16,7 @@ export class DetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private _marvelService:MarvelService,
+    private _uiService:UiService,
     @Inject(DOCUMENT) private _document
     // private state: RouterStateSnapshot
   ) {
@@ -23,11 +25,9 @@ export class DetailsComponent implements OnInit {
   
   ngOnInit(): void {
     this._document.body.classList.add('detailbg-color');
-    // OR you can Add inline style css with the help of code below
-    // this._document.body.style.background = '#fff';
 }
+
   ngOnDestroy() {
-  
     this._document.body.classList.remove('detailbg-color');
   }
  
@@ -39,17 +39,23 @@ getData() {
   switch (url) {
     case 'characters':
       this._marvelService.getCharactersById(id).subscribe((data:any)=>{
-        this.reconstructData(data);
+        if(data){
+          this.constructHeroDetails(data);
+        }
       })
       break;
     case 'comics':
       this._marvelService.getComicsById(id).subscribe((data:any)=>{
-        this.reconstructData(data);
+        if(data){
+            this.constructHeroDetails(data);
+        }
       })
       break;
     case 'series':
       this._marvelService.getSeriesById(id).subscribe((data:any)=>{
-        this.reconstructData(data);
+        if(data){
+          this.constructHeroDetails(data);
+        }
       })
       break;
   
@@ -61,24 +67,7 @@ getData() {
 
 }
 
-reconstructData(data) {
-  if(data) {
-    // let output = data.data.results.filter(x=>x.id==id)
-    console.log(data);
-    data.forEach(item => {
-      this.availableDetails.push({
-        id:item.id,
-        name :item.name ? item.name : item.title,
-        description:item.description,
-        comicsAvailable:item.comics?.available,
-        seriesAvailable:item.series?.available,
-        eventsAvailable:item.events?.available,
-        storiesAvailable:item.stories?.available,
-        thumbnail:item.thumbnail.path+'.'+item.thumbnail.extension,
-       })
-     });
-    [this.availableDetails]=this.availableDetails;
-    console.log(this.availableDetails);
-  }
+constructHeroDetails(data) {
+    this.availableDetails = this._uiService.constructHeroDetails(data);
 }
 }

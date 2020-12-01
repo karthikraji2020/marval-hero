@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 @Component({
   selector: 'app-pie',
   templateUrl: './pie.component.html',
-  styleUrls: ['./pie.component.css']
+  styleUrls: ['./pie.component.scss']
 })
 export class PieComponent implements OnInit {
   pieChart

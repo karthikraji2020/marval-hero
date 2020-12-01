@@ -6,7 +6,7 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class HomeComponent implements OnInit {
@@ -38,8 +38,8 @@ export class HomeComponent implements OnInit {
    }
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
-    // OR you can Add inline style css with the help of code below
-    // this._document.body.style.background = '#fff';
+    
+    
 }
   ngOnDestroy() {
   

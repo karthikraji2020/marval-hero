@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
-  styleUrls: ['./bar.component.css']
+  styleUrls: ['./bar.component.scss']
 })
 export class BarComponent implements OnInit {
 

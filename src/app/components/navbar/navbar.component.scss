@@ -1,0 +1,48 @@
+/* ink bar style */
+.navbar {
+	padding: 20px 20px 0px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(13, 37, 63);
+	display: flex;
+	flex-direction: column;
+	-webkit-box-align: center;
+	align-items: center;
+}
+a {
+	text-transform: uppercase;
+	font-size: 16px;
+	font-weight: 600;
+	color: rgb(255, 255, 255);
+}
+.mat-ink-bar {
+	background: rgb(1, 180, 228);
+	height: 5px;
+}
+[mat-align-tabs=center] {
+	>.mat-tab-link-container {
+		.mat-tab-links {
+			max-width: 450px;
+		}
+	}
+}
+.mat-tab-link.mat-focus-indicator {
+	&:hover {
+		color: rgb(1, 180, 228);
+	}
+}
+.mat-tab-group.mat-primary {
+	.mat-ink-bar {
+		background-color: rgb(1, 180, 228);
+	}
+}
+.mat-tab-nav-bar.mat-primary {
+	.mat-ink-bar {
+		background-color: rgb(1, 180, 228);
+	}
+}
+mat-ink-bar.mat-ink-bar {
+	height: 4px;
+}
+.mat-tab-link {
+	opacity: 1;
+}
