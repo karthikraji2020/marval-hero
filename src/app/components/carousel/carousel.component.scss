@@ -1,4 +1,6 @@
-/* @import url(styles.css); */
+// /* @import url(styles.css); */
+@import './../../../styles.scss';
+
 .carousel {
 	width: 100%;
 	height: 350px;
@@ -17,7 +19,8 @@
 	&::before {
 		content: '';
 		position: absolute;
-		background-color: rgba(13, 37, 63, 0.9);
+		// background-color: rgba(13, 37, 63, 0.9);
+		background-color: $marvel-hero-secondary-bg-color;
 		inset: 0px;
 		z-index: -1;
 	}

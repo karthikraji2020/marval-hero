@@ -25,7 +25,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { FavouritesComponent } from './components/favourites/favourites.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @NgModule({
@@ -58,7 +58,20 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    // MatCardModule,
+    // MatDialogModule,
+    // FlexLayoutModule,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatCheckboxModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,38 +1,40 @@
-@import "~@angular/material/theming";
-@include mat-core();
-$angular-primary: mat-palette($mat-teal, 500, 100, 900);
-$angular-accent: mat-palette($mat-pink, A200, A100, A400);
-$angular-warn: mat-palette($mat-red);
-$angular-default-theme: mat-light-theme(
-  (
-    color: (
-      primary: $angular-primary,
-      accent: $angular-accent,
-      warn: $angular-warn,
-    ),
-  )
-);
-@include angular-material-theme($angular-default-theme);
 
-$angular-dark-theme: mat-dark-theme(
-  (
-    color: (
-      primary: $angular-primary,
-      accent: $angular-accent,
-      warn: $angular-warn,
-    ),
-  )
-);
-.darkMode {
-  @include angular-material-color($angular-dark-theme);
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$light-custom-theme-primary: mat-palette($mat-blue);
+$light-custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$light-custom-theme-warn: mat-palette($mat-red);
+$light-custom-theme: mat-light-theme($light-custom-theme-primary, $light-custom-theme-accent, $light-custom-theme-warn);
+
+.light-theme {
+  @include angular-material-theme($light-custom-theme);
+}
+
+
+
+$custom-theme-primary: mat-palette($mat-blue);
+$custom-theme-accent: mat-palette($mat-orange, A200, A100, A400);
+$custom-theme-warn: mat-palette($mat-red);
+$custom-theme: mat-dark-theme($custom-theme-primary, $custom-theme-accent, $custom-theme-warn);
+
+
+.dark-theme {
+  @include angular-material-theme($custom-theme);
+}
+
+.mr-8 {
+  margin-right: 8px;
 }
 
 
 /* You can add global styles to this file, and also import other style files */
 	$marvel-hero-primary-bg-color: rgb(245, 248, 250);
+	$marvel-hero-dark-bg-color:rgba(13, 37, 63, 0.99);
 	$marvel-hero-secondary-bg-color: linear-gradient(to right, rgba(13, 37, 63, 0.99) 0%, rgba(1, 9, 18, 0.9) 100%);
-	$marvel-hero-primary-text-color: #1890ff;
-	$marvel-hero-primary-text-color: #1890ff;
+	$marvel-hero-primary-text-color: rgb(13, 37, 63);
+	$marvel-hero-secondary-text-color: #1890ff;
 	$marvel-hero-font-family: Poppins;
 
 * {
@@ -114,6 +116,12 @@ p {
 .bodybg-color {
 	background-color: $marvel-hero-primary-bg-color;
 }
+.bodybg-color {
+	.darkMode{
+		background-color: $marvel-hero-dark-bg-color;
+	}
+}
+
 .detailbg-color {
 	background: $marvel-hero-secondary-bg-color;
 }
@@ -276,6 +284,7 @@ h2.panel-title {
 		box-shadow: none;
 	}
 }
+
 @media only screen and (max-width: 600px) {
 	[mat-align-tabs=center] {
 		>.mat-tab-link-container {

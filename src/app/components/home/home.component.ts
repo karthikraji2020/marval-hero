@@ -38,11 +38,9 @@ export class HomeComponent implements OnInit {
    }
   ngOnInit(): void {
     this._document.body.classList.add('bodybg-color');
-    
-    
 }
+
   ngOnDestroy() {
-  
     this._document.body.classList.remove('bodybg-color');
   }
   getAllCharacters() {

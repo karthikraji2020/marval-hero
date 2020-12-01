@@ -1,0 +1,21 @@
+@import './../styles.scss';
+
+.theme-container{
+    width: 250px;
+    padding: .6rem;
+	position: fixed;
+	top: 50px;
+	right: 50px;
+    z-index: 100;
+    text-align: center;
+	background: $marvel-hero-dark-bg-color;
+	color: $marvel-hero-secondary-text-color;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 2px 2px;
+	transform: translateY(-20%);
+}
+@media only screen and (max-width: 600px) {
+	.theme-container{
+        display: none;
+    }
+}
