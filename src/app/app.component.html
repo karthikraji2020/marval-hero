@@ -1,19 +1,21 @@
 <app-navbar></app-navbar>
-  <div class="theme-container">
-      Marvel Heros  
-      <ng-container *ngIf="isDarkMode; else elseTemplate">
-        Dark
-      </ng-container> 
-      <ng-template #elseTemplate>
+<!-- <div class="theme-container">
+  Marvel Heros  
+  <ng-container *ngIf="isDarkMode; else elseTemplate">
+    Dark
+  </ng-container> 
+  <ng-template #elseTemplate>
           Light
       </ng-template> Mode
       <br>
     <mat-icon class="mr-8">brightness_5</mat-icon>
     
     <mat-slide-toggle [formControl]="toggleControl"></mat-slide-toggle>
-
+    
     <mat-icon>bedtime</mat-icon>
-  </div>
-    <router-outlet></router-outlet>
-    <app-favourites></app-favourites>
+  </div> -->
+  <router-outlet></router-outlet>
+  <app-favourites></app-favourites>
+  
+  <app-my-loader></app-my-loader>
 <app-footer></app-footer>

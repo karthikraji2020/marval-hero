@@ -11,7 +11,7 @@ import { BarComponent } from './charts/bar/bar.component';
 import { PieComponent } from './charts/pie/pie.component';
 import { LineComponent } from './charts/line/line.component';
 import { MarvelService } from './services/marvel.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule,HTTP_INTERCEPTORS  } from '@angular/common/http';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -28,6 +28,9 @@ import { FavouritesComponent } from './components/favourites/favourites.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { MyLoaderComponent } from './components/my-loader/my-loader.component';
+import { LoaderService } from './services/loader.service';
+import { LoaderInterceptor } from './interceptors/loader-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +46,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     SeriesComponent,
     DetailsComponent,
     PageNotFoundComponent,
-    FavouritesComponent
+    FavouritesComponent,
+    MyLoaderComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     // MatCheckboxModule,
     MatExpansionModule
   ],
-  providers: [],
+  providers: [
+    LoaderService,
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
